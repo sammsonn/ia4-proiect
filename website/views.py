@@ -26,7 +26,7 @@ def home():
 
 @views.route('/delete-note', methods=['POST'])
 def delete_note():
-    note = json.loads(request.data) # this function expects a JSON from the INDEX.js fi     le
+    note = json.loads(request.data) # this function expects a JSON from the INDEX.js file
     noteId = note['noteId']
     note = Note.query.get(noteId)
     if note:
@@ -35,3 +35,33 @@ def delete_note():
             db.session.commit()
 
     return jsonify({})
+
+@views.route('/data')
+@login_required
+def data():
+    return render_template("pagina_anomalii.html", user=current_user)
+
+@views.route('/1')
+@login_required
+def data1():
+    return render_template("1.html", user=current_user)
+
+@views.route('/2')
+@login_required
+def data2():
+    return render_template("2.html", user=current_user)
+
+@views.route('/3')
+@login_required
+def data3():
+    return render_template("3.html", user=current_user)
+
+@views.route('/4')
+@login_required
+def data4():
+    return render_template("4.html", user=current_user)
+
+@views.route('/5')
+@login_required
+def data5():
+    return render_template("5.html", user=current_user)
